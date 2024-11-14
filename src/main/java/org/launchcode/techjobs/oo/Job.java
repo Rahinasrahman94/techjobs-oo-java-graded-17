@@ -24,39 +24,39 @@ public class Job {
     public Job(String name,Employer employer,Location location,PositionType positionType,CoreCompetency coreCompetency)
     {
         //super();
-        this();
-//        this.employer = employer;
-//        this.location = location;
-//        this.positionType = positionType;
-//        this.coreCompetency = coreCompetency;
-//        this.name = name;
-//        this. employer = new Employer();
-//        this. location = new Location();
-//        this. positionType = new PositionType();
-//        this.coreCompetency = new CoreCompetency();
-
-             this.name = name;
-             this.employer = employer;
+             this();
+              this.name = name;
+              this.employer = employer;
               this.location = location;
-              this.positionType = positionType;
-             this.coreCompetency = coreCompetency;
+               this.positionType = positionType;
+               this.coreCompetency = coreCompetency;
 
     }
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+    public String toString() {
+        return System.lineSeparator()+"ID:"+ " "+ this.id + System.lineSeparator()+
+                   "Name: "+(this.name.isEmpty()? this.name="Data not available":this.name )+ System.lineSeparator()+
+                   "Employer: "+ employer.toString() + System.lineSeparator()+
+                   "Location: "+   location.toString() + System.lineSeparator()+
+                   "Position Type: "+ positionType.toString()+ System.lineSeparator()+
+                   "Core Competency: "+ coreCompetency.toString() + System.lineSeparator();
 
+
+//
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return id == job.id && Objects.equals(name, job.name) ;//&& Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+        return id == job.id ;//&& Objects.equals(name, job.name);//&& Objects.equals(employer.getId(), job.employer.getId()) && Objects.equals(location.getId(), job.location.getId()) && Objects.equals(positionType.getId(), job.positionType.getId()) && Objects.equals(coreCompetency.getId(), job.coreCompetency.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);//, employer, location, positionType, coreCompetency);
+        return Objects.hash(id);//employer, location, positionType, coreCompetency);
     }
 
     public int getId() {
@@ -68,10 +68,10 @@ public class Job {
     }
 
     public Employer getEmployer() {
-        return employer;
-    }
 
-    public Location getLocation() {
+            return employer;
+    }
+        public Location getLocation() {
         return location;
     }
 
